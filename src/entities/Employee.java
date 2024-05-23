@@ -8,8 +8,14 @@ public abstract class Employee implements CheckIn {
     private double salary;
     private Department department;
     private String name;
-
+    private double hours;
     //costruttore
+    public Employee(Department department, String name, double hours) {
+        this.department = department;
+        this.name = name;
+        this.hours = hours;
+    }
+
     public Employee(int matriculate, double salary, Department department, String name) {
         this.matriculate = matriculate;
         this.salary = salary;
@@ -17,9 +23,12 @@ public abstract class Employee implements CheckIn {
         this.name = name;
     }
 
+
+    //metodo interfaccia
     @Override
     public void checkIn() {
-        System.out.println("entro a lavoro alle");
+        System.out.println("\n" + "sono un: " + this.getDepartment());
+        System.out.println(this.name + " inizia il suo turno alle ore: " + this.hours);
     }
 
     //metodi della classe
@@ -41,6 +50,10 @@ public abstract class Employee implements CheckIn {
     }
 
     //getter e setter
+
+    public double getHours() {
+        return hours;
+    }
 
     public int getMatriculate() {
         return matriculate;

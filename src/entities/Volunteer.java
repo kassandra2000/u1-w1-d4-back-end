@@ -5,14 +5,14 @@ import enums.Department;
 public class Volunteer extends Employee {
     private int year;
     private String cv;
-    private double hours;
+
 
     //costruttore
-    public Volunteer(int matriculate, double salary, Department department, String name, int year, String cv, double hours) {
-        super(matriculate, salary, department, name);
+    public Volunteer(Department department, String name, int year, String cv, double hours) {
+        super(department, name, hours);
         this.year = year;
         this.cv = cv;
-        this.hours = hours;
+
 
     }
 
@@ -28,9 +28,4 @@ public class Volunteer extends Employee {
     }
 
 
-    @Override
-    public void checkIn() {
-        System.out.println("\n" + "sono un: " + this.getDepartment());
-        System.out.println(this.getName() + " inizia il suo turno alle ore: " + this.hours);
-    }
 }

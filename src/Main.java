@@ -24,7 +24,7 @@ public class Main {
         printSalary(arrayOfEmployee);
 
 // -------------------------------------------- esercizio 3-----------------------
-        Volunteer volunteer1 = new Volunteer(67899, 0, Department.volontario, "Germano", 54, "www.curriculum.com", 10.30);
+        Volunteer volunteer1 = new Volunteer( Department.volontario, "Germano", 54, "www.curriculum.com", 10.30);
         volunteer1.checkIn();
     }
 
