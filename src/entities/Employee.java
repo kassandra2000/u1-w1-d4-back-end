@@ -6,9 +6,10 @@ import interfaces.CheckIn;
 public abstract class Employee implements CheckIn {
     private int matriculate;
     private double salary;
-    private Department department;
-    private String name;
-    private double hours;
+    private final Department department;
+    private final String name;
+    private final double hours;
+
     //costruttore
     public Employee(Department department, String name, double hours) {
         this.department = department;
@@ -16,18 +17,19 @@ public abstract class Employee implements CheckIn {
         this.hours = hours;
     }
 
-    public Employee(int matriculate, double salary, Department department, String name) {
+    public Employee(int matriculate, double salary, Department department, String name, double hours) {
         this.matriculate = matriculate;
         this.salary = salary;
         this.department = department;
         this.name = name;
+        this.hours = hours;
     }
 
 
     //metodo interfaccia
     @Override
     public void checkIn() {
-        System.out.println("\n" + "sono un: " + this.getDepartment());
+        System.out.println("\n" + this.getDepartment());
         System.out.println(this.name + " inizia il suo turno alle ore: " + this.hours);
     }
 
@@ -44,20 +46,13 @@ public abstract class Employee implements CheckIn {
 
     //metodi statici
     public static void printMatriculate(Employee[] arrayOfEmployee) {
-        for (int i = 0; i < arrayOfEmployee.length; i++) {
-            arrayOfEmployee[i].printMatriculate();
+        for (Employee employee : arrayOfEmployee) {
+            employee.printMatriculate();
         }
     }
 
     //getter e setter
 
-    public double getHours() {
-        return hours;
-    }
-
-    public int getMatriculate() {
-        return matriculate;
-    }
 
     public double getSalary() {
         return salary;
@@ -71,7 +66,5 @@ public abstract class Employee implements CheckIn {
         return name;
     }
 
-    public void setDepartment(Department department) {
-        this.department = department;
-    }
+
 }

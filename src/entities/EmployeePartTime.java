@@ -3,13 +3,13 @@ package entities;
 import enums.Department;
 
 public class EmployeePartTime extends Employee {
-    private int days;
-    private int workingHours = 8;
-    private int overtimeHours;
+    private final int days;
+    private final int workingHours = 8;
+    private final int overtimeHours;
 
     //costruttore
-    public EmployeePartTime(int matriculate, double salary, Department department, String name, int days, int overtimeHours) {
-        super(matriculate, salary, department, name);
+    public EmployeePartTime(int matriculate, double salary, Department department, String name, int days, int overtimeHours, double hours) {
+        super(matriculate, salary, department, name, hours);
         this.days = days;
         this.overtimeHours = overtimeHours;
     }
